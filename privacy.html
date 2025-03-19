@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacidade - Gustavo Laranjeira Dev</title>
+    <style>
+        /* TUDO IDÊNTICO À HOME - MESMO CSS */
+        :root {
+            --primary: #2A2D34;
+            --secondary: #F7B32B;
+            --accent: #60935D;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        /* HEADER IDÊNTICO */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        /* MAIN CONTENT - MESMO ESTILO DAS SEÇÕES */
+        .privacy-container {
+            max-width: 1200px;
+            margin: 6rem auto 2rem;
+            padding: 0 2rem;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* CARD STYLE IDÊNTICO AO PORTFÓLIO */
+        .privacy-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 2rem 0;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .privacy-card h2 {
+            color: var(--accent);
+            margin: 1.5rem 0;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .privacy-card h2::before {
+            content: '▹';
+            color: var(--secondary);
+        }
+
+        /* LIST STYLE DOS SERVIÇOS */
+        .privacy-card ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .privacy-card li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .privacy-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 6px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        /* FOOTER IDÊNTICO */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 6rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* ANIMAÇÕES E RESPONSIVO IDÊNTICOS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 0 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .privacy-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Gustavo Laranjeira</a>
+        </nav>
+    </header>
+
+    <div class="privacy-container">
+        <h1>Privacidade sem Complicações</h1>
+        
+        <div class="privacy-card">
+            <h2>Meu Compromisso</h2>
+            <p>Como estudante e freelancer, desenvolvo sistemas com:</p>
+            <ul>
+                <li>Zero armazenamento de dados pessoais</li>
+                <li>Mínima coleta de informações</li>
+                <li>Transparência técnica total</li>
+            </ul>
+        </div>
+
+        <div class="privacy-card">
+            <h2>O que Registro</h2>
+            <ul>
+                <li><strong>Contatos:</strong> Apenas e-mail e nome (excluídos após 30 dias)</li>
+                <li><strong>Acesso:</strong> Dados anonimizados</li>
+                <li><strong>Projetos:</strong> Nenhum dado sensível nos códigos</li>
+            </ul>
+        </div>
+
+        <div class="privacy-card">
+            <h2>Como Protejo</h2>
+            <ul>
+                <li>HTTPS em todos os projetos</li>
+                <li>Autenticação via GitHub</li>
+                <li>Backups criptografados</li>
+                <li>Revisões via GitHub</li>
+            </ul>
+        </div>
+
+        <div class="privacy-card">
+            <h2>Para Desenvolvedores</h2>
+            <ul>
+                <li>Documentação técnica detalhada</li>
+                <li>Esclarecimentos via pull requests</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Gustavo Laranjeira. Estudante & Freelancer</p>
+        <p><a href="index.html">← Voltar ao Portfólio</a></p>
+    </footer>
+</body>
+</html>

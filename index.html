@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Laranjeira - Desenvolvedor</title>
+    <style>
+        :root {
+            --primary: #2A2D34;
+            --secondary: #F7B32B;
+            --accent: #60935D;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 6rem auto 2rem;
+            padding: 0 2rem;
+        }
+
+        section {
+            margin: 8rem 0;
+            scroll-margin-top: 6rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* Hero section */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .hero p::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: var(--accent);
+            margin: 1.5rem 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .service-card h3::before {
+            content: '▹';
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            text-align: center;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-placeholder {
+            background-color: #e9ecef;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 180px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .project-placeholder::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(0,0,0,0.3));
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin: 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(96,147,93,0.2);
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        button:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42,45,52,0.2);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 6rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            main {
+                padding: 0 1.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="logo">Gustavo Laranjeira</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Soluções Digitais Sob Medida</h1>
+            <p>Desenvolvimento web focado em performance, design limpo e funcionalidades estratégicas</p>
+            <div class="services">
+                <div class="service-card">
+                    <h3>Websites Institucionais</h3>
+                    <p>Presença digital profissional com foco em conversão e engajamento</p>
+                </div>
+                <div class="service-card">
+                    <h3>Sistemas Personalizados</h3>
+                    <p>Automação e gestão para processos empresariais específicos</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfólio</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-placeholder" style="background-image: url('projeto1.jpg')">Plataforma de Gestão de Aulas</div>
+                    <h3>Plataforma de Gestão de Aulas</h3>
+                    <p>Sistema de gestão de aulas online com acompanhamento das aulas para os alunos.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-placeholder" style="background-image: url('projeto2.jpg')">Sistema de Notificação de Aulas</div>
+                    <h3>Sistema de Notificação de Aulas</h3>
+                    <p>Sistema integrado de notificação para manter os alunos atualizados sobre as aulas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Descreva seu projeto..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+                <div class="contact-info">
+                    <p>✉️ gustavo@gustavolaranjeira.com.br</p>
+                    <p>📱 +55 13 991-385-442</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <div class="about-content">
+                <p>Estudante de Engenharia de Software com experiência prática em desenvolvimento web. Atuo como freelancer há 2 anos, focando em soluções eficientes que combinam tecnologia atual e design funcional.</p>
+                <br>
+                <p>Meu objetivo é ajudar pequenas empresas a estabelecerem uma presença digital impactante através de sistemas web otimizados e de fácil manutenção.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Gustavo Laranjeira. Todos os direitos reservados</p>
+        <p><a href="privacy.html">Política de Privacidade</a></p>
+    </footer>
+</body>
+</html>
